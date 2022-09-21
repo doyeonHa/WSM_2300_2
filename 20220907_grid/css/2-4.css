@@ -1,0 +1,73 @@
+body {
+    padding: 100px;
+}
+
+.grid-container {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 100px repeat(5, 1fr);
+    max-width: 700px;
+    height: 500px;
+    color: black;
+}
+
+.grid-item {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.days-of-the-week {
+    color: black;
+    background-color: lightblue;
+}
+
+.grid-item:nth-child(1) {
+    background-color: white;
+}
+
+.period {
+    color: black;
+    background-color: white;
+}
+
+.grid-item:nth-child(9) {
+    grid-area: 2/3/4/3;
+}
+
+.grid-item:nth-child(11) {
+    grid-area: 2/5/4/6;
+}
+
+.grid-item:nth-child(18) {
+    grid-area: 4/2/6/3;
+}
+
+.grid-item:nth-child(20) {
+    grid-area: 4/4/6/5;
+}
+
+.grid-item:nth-child(31) {
+    grid-area: 6/5/8/6;
+}
+
+.grid-item:nth-child(32) {
+    grid-area: 6/6/8/7;
+}
+
+.grid-item:nth-child(35) {
+    grid-area: 7/3/9/4;
+}
+
+.grid-item:nth-child(36) {
+    grid-area: 7/4/9/5;
+}
+
+.grid-item:nth-child(38) {
+    background-color: goldenrod;
+}
+
+.grid-item:nth-child(40) {
+    background-color: goldenrod;
+}
