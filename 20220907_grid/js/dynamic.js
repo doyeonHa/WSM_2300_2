@@ -125,37 +125,37 @@ const getMenuByAPI = (url) => {
 
 }
 const showMenu = (jsonString) => {
-        // console.log(jsonString);
-        // jsonStrin -> json
-        let json = JSON.parse(jsonString); // JSON.stringify(): json -> string
-        // console.log(json);
+    // console.log(jsonString);
+    // jsonStrin -> json
+    let json = JSON.parse(jsonString); // JSON.stringify(): json -> string
+    // console.log(json);
 
-        // json -> 조식, 중식, 석식
-        let breakfastMenu = "없음";
-        let lunchMenu = "없음";
-        let dinnerMenu = "없음";
-        try {
-            breakfastMenu = json["mealServiceDietInfo"][1]["row"][0]["DDISH_NM"];
-        } catch {}
+    // json -> 조식, 중식, 석식
+    let breakfastMenu = "없음";
+    let lunchMenu = "없음";
+    let dinnerMenu = "없음";
+    try {
+        breakfastMenu = json["mealServiceDietInfo"][1]["row"][0]["DDISH_NM"];
+    } catch {}
 
-        try {
-            lunchMenu = json["mealServiceDietInfo"][1]["row"][1]["DDISH_NM"];
-        } catch {}
+    try {
+        lunchMenu = json["mealServiceDietInfo"][1]["row"][1]["DDISH_NM"];
+    } catch {}
 
-        try {
-            dinnerMenu = json["mealServiceDietInfo"][1]["row"][2]["DDISH_NM"];
-        } catch {}
+    try {
+        dinnerMenu = json["mealServiceDietInfo"][1]["row"][2]["DDISH_NM"];
+    } catch {}
 
-        // 조식, 중식, 석식 -> HTML
-        breakfast.innerHTML = breakfastMenu;
-        lunch.innerHTML = lunchMenu;
-        dinner.innerHTML = dinnerMenu;
-    }
+    // 조식, 중식, 석식 -> HTML
     // 응답오면, #breakfast, #lunch, #dinner에 출력하자
+    breakfast.innerHTML = breakfastMenu;
+    lunch.innerHTML = lunchMenu;
+    dinner.innerHTML = dinnerMenu;
+}
 
 let dateGridContainerDiv = document.getElementsByClassName("date-grid-container")[0];
 let gridItems = dateGridContainerDiv.getElementsByClassName("grid-item");
 for (let gridItem of gridItems) {
     // console.log(gridItem);
-    gridItem.onclick = handler;
+    gridItem.onmouseover = handler; // mouseover일 때, 이벤트 처리하자
 }
