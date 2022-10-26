@@ -101,27 +101,55 @@ const handler = (event) => {
     }
     // AJAX로 url 호출하자 (Asynchronous JavaScript And XML)
 const getMenuByAPI = (url) => {
-        // XMLHttpRequest 만들자
-        let xhr = new XMLHttpRequest();
+    // XMLHttpRequest 만들자
+    let xhr = new XMLHttpRequest();
 
-        // callback
-        xhr.onreadystatechange = () => {
-            if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-                // success
-                console.log("성공");
-                console.log(xhr.response);
-            } else {
-                // fail
-                console.log("실패", xhr.status);
-            }
+    // callback
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            // success
+            // console.log("성공");
+            // console.log(xhr.response);
+            showMenu(xhr.response);
+        } else {
+            // fail
+            console.log("실패", xhr.status);
         }
+    }
 
-        // 요청을 보낼 방식, url, 비동기여부 설정하자
-        xhr.open("GET", url, true);
+    // 요청을 보낼 방식, url, 비동기여부 설정하자
+    xhr.open("GET", url, true);
 
-        // 요청을 전송하자
-        xhr.send();
+    // 요청을 전송하자
+    xhr.send();
 
+}
+const showMenu = (jsonString) => {
+        // console.log(jsonString);
+        // jsonStrin -> json
+        let json = JSON.parse(jsonString); // JSON.stringify(): json -> string
+        // console.log(json);
+
+        // json -> 조식, 중식, 석식
+        let breakfastMenu = "없음";
+        let lunchMenu = "없음";
+        let dinnerMenu = "없음";
+        try {
+            breakfastMenu = json["mealServiceDietInfo"][1]["row"][0]["DDISH_NM"];
+        } catch {}
+
+        try {
+            lunchMenu = json["mealServiceDietInfo"][1]["row"][1]["DDISH_NM"];
+        } catch {}
+
+        try {
+            dinnerMenu = json["mealServiceDietInfo"][1]["row"][2]["DDISH_NM"];
+        } catch {}
+
+        // 조식, 중식, 석식 -> HTML
+        breakfast.innerHTML = breakfastMenu;
+        lunch.innerHTML = lunchMenu;
+        dinner.innerHTML = dinnerMenu;
     }
     // 응답오면, #breakfast, #lunch, #dinner에 출력하자
 
