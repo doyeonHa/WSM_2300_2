@@ -17,9 +17,10 @@ main {
     border: 2px solid gray;
     border-radius: 8px;
     padding: 12px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    cursor: pointer;
 }
 
 h1 {
@@ -43,6 +44,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .date-grid-container .grid-item:hover {
