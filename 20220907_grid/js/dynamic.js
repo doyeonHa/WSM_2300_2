@@ -85,7 +85,6 @@ const handler = (event) => {
         // handler에서 year, month, date 정보를 가져와서 url 생성하자
         let date = event.target.innerHTML;
         const KEY = "2f9e443162a24c93a2ce8f0f729fe2c9";
-        console.log(KEY);
         const ATPT_OFCDC_SC_CODE = "B10"; // 서울특별교육청
         const SD_SCHUL_CODE = "7010569"; // 미림여자정보과학고등학교
         let MLSV_YMD = `${year}${month.toString().padStart(2, "0")}${date.padStart(2, "0")}`; // 2022년 10월 19일
@@ -95,7 +94,7 @@ const handler = (event) => {
         url += `&ATPT_OFCDC_SC_CODE=${ATPT_OFCDC_SC_CODE}`;
         url += `&SD_SCHUL_CODE=${SD_SCHUL_CODE}`;
         url += `&MLSV_YMD=${MLSV_YMD}`;
-        console.log(url);
+        // console.log(url);
         getMenuByAPI(url);
 
     }
